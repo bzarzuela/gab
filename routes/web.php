@@ -1,7 +1,6 @@
 <?php
 
+use App\Livewire\TwoLetters;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/two-letters', TwoLetters::class);
