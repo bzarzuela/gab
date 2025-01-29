@@ -42,9 +42,25 @@
         },
 
         randomize() {
-            this.word = this.$wire.consonants[Math.floor(Math.random() * this.$wire.consonants.length)];
-            this.word += this.$wire.vowels[Math.floor(Math.random() * this.$wire.vowels.length)];
-            this.word = this.word.toLowerCase();
+            if (this.$wire.consonants.length === 0 || this.$wire.vowels.length === 0) {
+                Flux.toast({ text: 'You need to have at least one consonant and one vowel selected.', variant: 'danger'});
+                return;
+            }
+
+            if (this.$wire.consonants.length === 1 && this.$wire.vowels.length === 1) {
+                Flux.toast({ text: 'You need to have at least two combinations possible.', variant: 'danger'});
+                return;
+            }
+
+            let word = this.$wire.consonants[Math.floor(Math.random() * this.$wire.consonants.length)];
+            word += this.$wire.vowels[Math.floor(Math.random() * this.$wire.vowels.length)];
+            word = word.toLowerCase();
+
+            if (this.word === word) {
+                this.randomize();
+            } else {
+                this.word = word;
+            }
         }
     }));
 </script>
