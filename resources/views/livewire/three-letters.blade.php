@@ -5,7 +5,7 @@
                 wire:click="yo('{{ $choice }}')"
                 variant="{{ $this->buttonVariant($choice) }}"
                 @class([
-                    '!text-9xl !p-6 h-auto',
+                    '!text-6xl !p-6 h-auto',
                     'bg-green-500' => $answer === $guess,
                     'bg-red-500' => $answer !== $guess
                 ])
