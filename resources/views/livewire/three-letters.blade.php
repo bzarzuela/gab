@@ -1,5 +1,4 @@
 <div class="min-h-screen w-full flex flex-col items-center justify-center gap-6">
-    {{ $guess }} {{ $answer }}
     <div class="grid grid-cols-1 gap-6">
         @foreach($choices as $choice)
             <flux:button
