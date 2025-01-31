@@ -83,11 +83,6 @@ class ThreeLetters extends Component
         $this->initQuestion();
     }
 
-    public function yo(string $guess): void
-    {
-        $this->guess = $guess;
-    }
-
     protected function buttonVariant(string $choice): string
     {
         if ($this->guess !== '' && $this->guess === $choice) {

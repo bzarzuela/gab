@@ -1,13 +1,13 @@
 <div class="min-h-screen w-full flex flex-col items-center justify-center gap-6">
+    {{ $guess }} {{ $answer }}
     <div class="grid grid-cols-1 gap-6">
         @foreach($choices as $choice)
             <flux:button
-                wire:click="yo('{{ $choice }}')"
-                variant="{{ $this->buttonVariant($choice) }}"
+                wire:click="$set('guess', '{{ $choice }}')"
                 @class([
                     '!text-6xl !p-6 h-auto',
-                    'bg-green-500' => $answer === $guess,
-                    'bg-red-500' => $answer !== $guess
+                    '!bg-green-500' => $guess === $choice &&  $answer === $choice,
+                    '!bg-red-500' => $guess === $choice && $answer !== $choice
                 ])
             >{{ $choice }}</flux:button>
         @endforeach
